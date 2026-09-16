@@ -6,7 +6,8 @@
 // NOTE: Real PG&E billing also factors in your specific "baseline allowance"
 // (which varies by climate zone, heating type, and season) and a separate
 // Base Services Charge. This model simplifies that into flat rates per plan
-// so it's approachable for a quick comparison tool. 
+// so it's approachable for a quick comparison tool. Document this
+// simplification clearly in the README.
 
 export const ratePlans = [
     {

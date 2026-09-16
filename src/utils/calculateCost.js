@@ -52,5 +52,3 @@ function calculateTimeOfUseCost(monthlyKwh, plan) {
 function roundToCents(amount) {
     return Math.round(amount * 100) / 100;
 }
-
-// console.log(calculateCost(400, ratePlans[0])); // E-1: expect 300*0.33 + 100*0.41 = 140
