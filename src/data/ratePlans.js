@@ -30,8 +30,11 @@ export const ratePlans = [
             peak: 0.44,
             offPeak: 0.32,
         },
-        // Rough assumption for the calculator: 5 of 24 hours are "peak"
+        // 5 of 24 hours are "peak", and the peak window applies every day
+        // (weekdays and weekends alike) -> weekday/weekend usage split has
+        // no effect on this plan's peak fraction.
         peakHourFraction: 5 / 24,
+        peakDays: "daily",
     },
     {
         id: "e-tou-d",
@@ -43,7 +46,10 @@ export const ratePlans = [
             peak: 0.48,
             offPeak: 0.34,
         },
-        // 3 peak hours, weekdays only (~5/7 days) -> rough weekly fraction
-        peakHourFraction: (3 / 24) * (5 / 7),
+        // 3 of 24 hours are "peak", but only on weekdays -> how much of a
+        // household's usage lands in peak hours depends on how much of
+        // their total usage happens on weekends vs weekdays.
+        peakHourFraction: 3 / 24,
+        peakDays: "weekdays",
     },
 ];

@@ -2,7 +2,7 @@
 
 import { calculateCost } from "../utils/calculateCost.js";
 
-function RateComparison({ monthlyKwh, ratePlans }) {
+function RateComparison({ monthlyKwh, ratePlans, weekendUsagePercent }) {
     // Don't show anything until the user has entered a usable number
     if (monthlyKwh === "" || monthlyKwh <= 0) {
         return <p className="comparison-empty">Enter your monthly usage above to see estimates.</p>;
@@ -10,7 +10,7 @@ function RateComparison({ monthlyKwh, ratePlans }) {
 
     const results = ratePlans.map((plan) => ({
         plan,
-        cost: calculateCost(monthlyKwh, plan),
+        cost: calculateCost(monthlyKwh, plan, weekendUsagePercent),
     }));
 
     const cheapest = results.reduce((lowest, current) =>
